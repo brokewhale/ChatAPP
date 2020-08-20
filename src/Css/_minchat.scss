@@ -1,0 +1,23 @@
+.minavater {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &:not(:last-child) {
+        margin-right: 16px;
+    }
+
+
+    p {
+        font-size: 12px;
+        overflow: hidden;
+        margin-top: 8px;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 50px;
+
+
+    }
+
+}
