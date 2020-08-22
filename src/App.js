@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Css/style.css';
 import Front from './Components/Front';
 import Mainchat from './Components/Mainchat';
 import Login from './Components/Login';
+import { useStateValue } from './Components/StateProvider';
+
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 function App() {
 
-  const [user] = useState(null);
+  const [{ user }] = useStateValue();
+
   // setUser(user);
 
   return (
