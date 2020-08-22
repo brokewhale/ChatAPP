@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 import { auth, provider } from '../firebase';
 const Login = () => {
     const signIn = () => {
-        auth.signInWithRedirect(provider).then(result =>
+        auth.signInWithPopup(provider).then(result =>
             console.log(result)
         ).catch(error => alert(error.message))
     };
