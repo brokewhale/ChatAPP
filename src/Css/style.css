@@ -11,6 +11,8 @@
   background-color: #1C3FAA;
   padding: 20px 12px;
   min-height: 100vh;
+  max-width: 360px;
+  margin: 0 auto;
 }
 
 .app__content {
@@ -19,6 +21,34 @@
   border-radius: 30px;
   padding: 0 16px;
   padding-bottom: 40px;
+}
+
+.login {
+  color: white;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.login__container {
+  padding: 100px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.login__container img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100px;
+  margin-bottom: 40px;
+}
+
+.login__container button {
+  margin-top: 50px;
+  text-transform: inherit !important;
+  background-color: white;
+  color: blue;
 }
 
 .front__topbar {
@@ -207,7 +237,7 @@
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 50px;
+  width: 40px;
 }
 
 .chatlist {
@@ -263,5 +293,175 @@
   width: 200px;
   font-size: 14px;
   line-height: 21px;
+}
+
+.mainchat {
+  position: relative;
+  top: 20px;
+  background-color: white;
+}
+
+.mainchat__header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.mainchat__header .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mainchat__header .header__ava {
+  width: 48px !important;
+  height: 48px !important;
+}
+
+.mainchat__header .header__info {
+  margin-left: 12px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.mainchat__header .header__info h3 {
+  font-size: 16px;
+  color: #2d3748;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.mainchat__header .header__info p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #718096;
+  width: 200px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.mainchat__header .header__info p span {
+  margin: 0 4px;
+  font-size: 12px;
+}
+
+.mainchat__header .low {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px 20px 0 20px;
+  margin: 20px -20px 0 -20px;
+  border-top: 1px solid #edf2f7;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainchat__header .low svg {
+  color: #a0aec0;
+}
+
+.mainchat__header .low svg:not(:last-child) {
+  margin-right: 20px;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.mainchat__header .low .vat {
+  margin-left: auto;
+}
+
+.mainchat__msg {
+  padding: 20px 20px 0 20px;
+  overflow-y: scroll;
+  height: 65vh;
+}
+
+.mainchat__msg .msgchat {
+  max-width: 90%;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  color: #4a5568;
+  font-size: 14px;
+  background-color: #edf2f7;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.mainchat__msg .msgchat .timestamp {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #718096;
+  line-height: 18px;
+}
+
+.mainchat__footer {
+  padding: 16px 0 40px 0;
+  border-top-color: #edf2f7;
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.mainchat__footer form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainchat__footer form input {
+  border: none;
+  padding: 12px 20px;
+  overflow-y: auto;
+  resize: none;
+  height: 46px;
+  color: #a0aec0;
+  border-radius: 6px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.mainchat__footer form svg {
+  margin-right: 12px;
+  color: #a0aec0;
+}
+
+.mainchat__footer form button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+  margin-right: 20px;
+  width: 2rem;
+  height: 32px;
+  border-radius: 9999px;
+  background-color: #1C3FAA;
+  display: none;
+}
+
+.msg__receiver {
+  margin-left: auto !important;
+  background-color: #1C3FAA !important;
+  color: white !important;
+  border-bottom-left-radius: 6px !important;
+  border-top-left-radius: 6px !important;
+  border-top-right-radius: 6px !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.msg__receiver .timestamp {
+  color: #C6D4FD !important;
 }
 /*# sourceMappingURL=style.css.map */

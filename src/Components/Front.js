@@ -1,11 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { SearchOutlined, NotificationsOutlined, Add } from '@material-ui/icons';
 import { Avatar } from '@material-ui/core';
 import profile from '../img/profile-1.jpg';
 import Minchatavater from './Minchatavater';
 import Chatlist from './Chatlist';
+import db from '../firebase';
 
 const Front = () => {
+    const [rooms, setRooms] = useState([]);
+
+    const createchat = () => {
+        const roomName = prompt('please enter name fore chat room');
+        if (roomName) {
+
+            db.collection('rooms').add({
+                name: roomName,
+            })
+        }
+    }
+
+    useEffect(() => {
+        const unsubscribe = db.collection('rooms').onSnapshot(snapshot => {
+            setRooms(snapshot.docs.map((doc) => (
+                {
+                    id: doc.id,
+                    data: doc.data()
+                }
+            )))
+        });
+        return () => {
+            unsubscribe();
+        }
+    }, [])
     return (
         <div className='front'>
             <div className="front__topbar ">
@@ -19,7 +45,7 @@ const Front = () => {
             <div className="front__intro">
                 <h2>Chat</h2>
                 <div className="addchat">
-                    <button>Start New Chat</button>
+                    <button onClick={createchat}>Start New Chat</button>
                     <span>
                         <Add />
                     </span>
@@ -44,17 +70,13 @@ const Front = () => {
                     </div>
                     <div className="search__highlight">
                         <div className="highlight__content">
-                            <Minchatavater />
-                            <Minchatavater />
-                            <Minchatavater />
-                            <Minchatavater />
-                            <Minchatavater />
-                            <Minchatavater />
-                            <Minchatavater />
-                            <Minchatavater />
-                            <Minchatavater />
-                            <Minchatavater />
-                            <Minchatavater />
+                            {rooms.map(room => (
+                                <Minchatavater key={room.id} id={room.id}
+                                    name={room.data.name}
+                                />
+
+                            ))}
+
 
 
 
@@ -66,14 +88,12 @@ const Front = () => {
                 </div>
 
                 <div className="front__chat-chatlistcon">
-                    <Chatlist />
-                    <Chatlist />
-                    <Chatlist />
-                    <Chatlist />
-                    <Chatlist />
-                    <Chatlist />
-                    <Chatlist />
-                    <Chatlist />
+                    {rooms.map(room => (
+                        <Chatlist key={room.id} id={room.id}
+                            name={room.data.name}
+                        />
+
+                    ))}
 
                 </div>
             </div>
