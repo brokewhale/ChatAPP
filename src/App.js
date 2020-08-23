@@ -11,7 +11,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
 
-  const [{ user }] = useStateValue();
+  const [{ user },] = useStateValue(null);
+  // const [user] = useState(false)
 
   // setUser(user);
 
