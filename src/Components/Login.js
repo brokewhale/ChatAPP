@@ -3,9 +3,12 @@ import { Button } from '@material-ui/core';
 import { auth, provider } from '../firebase';
 import { actionTypes } from './reducer';
 import { useStateValue } from './StateProvider';
+import { ChatBubbleOutline } from '@material-ui/icons';
+
 
 
 const Login = () => {
+    // eslint-disable-next-line 
     const [{ }, dispatch] = useStateValue()
 
     const signIn = () => {
@@ -21,7 +24,8 @@ const Login = () => {
     return (
         <div className='login'>
             <div className="login__container">
-                <img src="https://images.app.goo.gl/7XZn34tWZigXfTpPA" alt="chat" />
+                {/* <img src="https://images.app.goo.gl/7XZn34tWZigXfTpPA" alt="chat" /> */}
+                <ChatBubbleOutline />
 
                 <div className="login__text">
                     <h1>Sign in to Shigchat</h1>

@@ -6,6 +6,9 @@ import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
 import { ReactComponent as Send } from '../img/send.svg';
 import MicIcon from '@material-ui/icons/Mic';
 import { useParams } from 'react-router-dom';
+import { useStateValue } from './StateProvider';
+import firebase from 'firebase';
+
 import db from '../firebase';
 
 
@@ -13,12 +16,20 @@ const Mainchat = () => {
     const [input, setInput] = useState('');
     const { roomId } = useParams();
     const [roomName, setRoomName] = useState('');
+    const [messages, setMessages] = useState([]);
+    // eslint-disable-next-line
+    const [{ user }, dispatch] = useStateValue();
+
 
     useEffect(() => {
         if (roomId) {
             db.collection('rooms').doc(roomId).onSnapshot(snapshot =>
                 setRoomName(snapshot.data().name)
             );
+
+            db.collection('rooms').doc(roomId).collection('messages').orderBy('timestamp', 'asc').onSnapshot(snapshot => {
+                setMessages(snapshot.docs.map(doc => doc.data()))
+            })
         }
 
     }, [roomId])
@@ -26,6 +37,13 @@ const Mainchat = () => {
     const sendmsg = (e) => {
         e.preventDefault();
         console.log(input);
+
+        db.collection('rooms').doc(roomId).collection('messages').add({
+            message: input,
+            name: user.displayName,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        })
+
         setInput('')
 
     }
@@ -49,50 +67,17 @@ const Mainchat = () => {
             </div>
 
             <div className='mainchat__msg'>
-                <div className="msgchat ">
-                    Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Eum, hic?Lorem ipsum
-                    <div className="timestamp">
-                        10:40PM
-                    </div>
-                </div>
+                {messages.map(message => (
 
-                <div className="msgchat msg__receiver">
-                    Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Eum, hic?Lorem ipsum
-                    <div className="timestamp">
-                        10:40PM
+                    <div className={`msgchat ${message.name === user.displayName && "msg__receiver"}`}>
+                        {message.message}
+                        <div className="timestamp">
+                            {new Date(message.timestamp?.toDate()).toUTCString()}
+                        </div>
                     </div>
-                </div>
-                <div className="msgchat msg__receiver">
-                    Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Eum, hic?Lorem ipsum
-                    <div className="timestamp">
-                        10:40PM
-                    </div>
-                </div>
-                <div className="msgchat ">
-                    Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Eum, hic?Lorem ipsum
-                    <div className="timestamp">
-                        10:40PM
-                    </div>
-                </div>
+                ))}
 
-                <div className="msgchat msg__receiver">
-                    Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Eum, hic?Lorem ipsum
-                    <div className="timestamp">
-                        10:40PM
-                    </div>
-                </div>
-                <div className="msgchat ">
-                    Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Eum, hic?Lorem ipsum
-                    <div className="timestamp">
-                        10:40PM
-                    </div>
-                </div>
+
             </div>
 
             <div className="mainchat__footer">

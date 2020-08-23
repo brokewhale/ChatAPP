@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { SearchOutlined, NotificationsOutlined, Add } from '@material-ui/icons';
 import { Avatar } from '@material-ui/core';
-import profile from '../img/profile-1.jpg';
+// import profile from '../img/profile-1.jpg';
 import Minchatavater from './Minchatavater';
 import Chatlist from './Chatlist';
 import db from '../firebase';
+import { useStateValue } from './StateProvider';
+
 
 const Front = () => {
     const [rooms, setRooms] = useState([]);
+    // eslint-disable-next-line
+    const [{ user }, dispatch] = useStateValue();
 
     const createchat = () => {
         const roomName = prompt('please enter name fore chat room');
@@ -37,7 +41,7 @@ const Front = () => {
             <div className="front__topbar ">
                 <SearchOutlined className='searchicon' color='action' />
                 <NotificationsOutlined color='action' />
-                <Avatar className='logo' alt="Remy Sharp" src={profile} />
+                <Avatar className='logo' alt="Remy Sharp" src={user?.photoURL} />
                 {/* <img src={profile} alt="profile" /> */}
 
             </div>

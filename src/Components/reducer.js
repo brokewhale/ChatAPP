@@ -13,12 +13,12 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 user: action.user,
-            }
+            };
 
 
 
-            default:
-                return state;
+        default:
+            return state;
     }
-}
-export default reducer
+};
+export default reducer;
