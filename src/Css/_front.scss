@@ -158,6 +158,8 @@
             }
 
             .search__highlight {
+                border-bottom: none;
+
                 .highlight__content {
                     margin-top: 20px;
                     overflow-x: scroll;

@@ -70,6 +70,7 @@ const Mainchat = () => {
                 {messages.map(message => (
 
                     <div className={`msgchat ${message.name === user.displayName && "msg__receiver"}`}>
+                        {/* <h3>{message.name}</h3> */}
                         {message.message}
                         <div className="timestamp">
                             {new Date(message.timestamp?.toDate()).toUTCString()}

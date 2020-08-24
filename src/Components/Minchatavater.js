@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 
 const Minchatavater = ({ name, id }) => {
     return (
-        <Link to={`/rooms/${id}`}>
-            <div className='minavater'>
-                <Avatar className='minava' alt='dummy' />
-                <p>{name}</p>
-            </div>
+        <Link className='minavater' to={`/rooms/${id}`}>
+
+            <Avatar className='minava' alt='dummy' />
+            <p>{name}</p>
+
         </Link>
     );
 };
