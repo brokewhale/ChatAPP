@@ -7,6 +7,7 @@ const Chatlist = ({ name, id }) => {
     return (
 
         <Link to={`/rooms/${id}`}>
+
             <div className='chatlist'>
                 <Avatar className='chatlist__ava' />
                 <div className="chatlist__info">
@@ -18,5 +19,7 @@ const Chatlist = ({ name, id }) => {
         </Link>
     );
 };
+
+
 
 export default Chatlist;

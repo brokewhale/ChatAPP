@@ -45,7 +45,7 @@
             button {
                 border: none;
                 outline: none;
-                background-color: #1C3FAA;
+                background-color: #2392c8;
                 color: white;
                 padding: 0.5rem 0.75rem;
                 border-radius: 0.375rem;
@@ -127,7 +127,7 @@
 
                 .active {
 
-                    background-color: #1C3FAA;
+                    background-color: #2392c8;
                     color: white;
                 }
             }
@@ -178,4 +178,8 @@
             overflow: scroll;
         }
     }
+}
+
+.chatlistcon2 {
+    position: relative;
 }

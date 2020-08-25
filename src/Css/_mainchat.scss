@@ -85,6 +85,14 @@
         // flex: 1;
         height: 65vh;
 
+        h4 {
+            font-size: 12px;
+            margin-bottom: 5px;
+            font-weight: initial;
+            text-transform: capitalize;
+
+        }
+
 
 
         .msgchat {
@@ -111,7 +119,7 @@
     }
 
     &__footer {
-        padding: 16px 0 40px 0;
+        padding: 16px 0 0 0;
         border-top-color: rgb(237, 242, 247);
         border-top-style: solid;
         border-top-width: 1px;
@@ -131,6 +139,7 @@
                 color: #a0aec0;
                 border-radius: 6px;
                 appearance: none;
+                flex: 1;
             }
 
             svg {
@@ -164,7 +173,7 @@
 
 .msg__receiver {
     margin-left: auto !important;
-    background-color: #1C3FAA !important;
+    background-color: #2392c8 !important;
     color: white !important;
     border-bottom-left-radius: 6px !important;
     border-top-left-radius: 6px !important;
@@ -173,5 +182,22 @@
 
     .timestamp {
         color: #C6D4FD !important;
+    }
+}
+
+.backarrow {
+    z-index: 999;
+    position: fixed;
+    right: 32px;
+    bottom: 194px;
+    border-radius: 80px;
+    padding: 20px 7px;
+    background-color: #F4F8FD;
+
+
+    svg {
+        color: black;
+        z-index: 99;
+        // pointer-events: none;
     }
 }

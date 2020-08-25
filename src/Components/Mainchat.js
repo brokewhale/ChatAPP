@@ -8,6 +8,9 @@ import MicIcon from '@material-ui/icons/Mic';
 import { useParams } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
 import firebase from 'firebase';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { Link } from 'react-router-dom';
+
 
 import db from '../firebase';
 
@@ -50,6 +53,9 @@ const Mainchat = () => {
 
     return (
         <div className='mainchat'>
+            <Link to='/' className="backarrow">
+                <ArrowBackIcon />
+            </Link>
             <div className="mainchat__header">
                 <div className="header">
                     <Avatar className='header__ava' />
@@ -69,8 +75,9 @@ const Mainchat = () => {
             <div className='mainchat__msg'>
                 {messages.map(message => (
 
-                    <div className={`msgchat ${message.name === user.displayName && "msg__receiver"}`}>
+                    <div key={message.message} className={`msgchat ${message.name === user.displayName && "msg__receiver"}`}>
                         {/* <h3>{message.name}</h3> */}
+                        <h4>{message.name}</h4>
                         {message.message}
                         <div className="timestamp">
                             {new Date(message.timestamp?.toDate()).toUTCString()}
@@ -89,7 +96,7 @@ const Mainchat = () => {
                 </form>
             </div>
 
-        </div>
+        </div >
     );
 
 };

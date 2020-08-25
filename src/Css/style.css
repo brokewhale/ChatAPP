@@ -12,19 +12,19 @@ a {
 }
 
 .app {
-  background-color: #1C3FAA;
+  background-color: #2392c8;
   padding: 20px 12px;
   min-height: 100vh;
-  max-width: 360px;
+  max-width: 768px;
   margin: 0 auto;
 }
 
 .app__content {
-  background-color: #F1F5F8;
+  background-color: #E2EEFF;
   min-height: 100vh;
   border-radius: 30px;
   padding: 0 16px;
-  padding-bottom: 40px;
+  padding-bottom: px;
 }
 
 .login {
@@ -105,7 +105,7 @@ a {
 .front__intro .addchat button {
   border: none;
   outline: none;
-  background-color: #1C3FAA;
+  background-color: #2392c8;
   color: white;
   padding: 0.5rem 0.75rem;
   border-radius: 0.375rem;
@@ -175,7 +175,7 @@ a {
 }
 
 .front__chat-introcontainer .chatselect .active {
-  background-color: #1C3FAA;
+  background-color: #2392c8;
   color: white;
 }
 
@@ -219,6 +219,10 @@ a {
   gap: 20px;
   max-height: 525px;
   overflow: scroll;
+}
+
+.chatlistcon2 {
+  position: relative;
 }
 
 .minavater {
@@ -389,6 +393,13 @@ a {
   height: 65vh;
 }
 
+.mainchat__msg h4 {
+  font-size: 12px;
+  margin-bottom: 5px;
+  font-weight: initial;
+  text-transform: capitalize;
+}
+
 .mainchat__msg .msgchat {
   max-width: 90%;
   padding: 12px 16px;
@@ -409,7 +420,7 @@ a {
 }
 
 .mainchat__footer {
-  padding: 16px 0 40px 0;
+  padding: 16px 0 0 0;
   border-top-color: #edf2f7;
   border-top-style: solid;
   border-top-width: 1px;
@@ -435,6 +446,9 @@ a {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .mainchat__footer form svg {
@@ -464,7 +478,7 @@ a {
 
 .msg__receiver {
   margin-left: auto !important;
-  background-color: #1C3FAA !important;
+  background-color: #2392c8 !important;
   color: white !important;
   border-bottom-left-radius: 6px !important;
   border-top-left-radius: 6px !important;
@@ -474,5 +488,30 @@ a {
 
 .msg__receiver .timestamp {
   color: #C6D4FD !important;
+}
+
+.backarrow {
+  z-index: 999;
+  position: fixed;
+  right: 32px;
+  bottom: 194px;
+  border-radius: 80px;
+  padding: 20px 7px;
+  background-color: #F4F8FD;
+}
+
+.backarrow svg {
+  color: black;
+  z-index: 99;
+}
+
+.delete {
+  position: absolute;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.delete svg {
+  color: #718096;
 }
 /*# sourceMappingURL=style.css.map */

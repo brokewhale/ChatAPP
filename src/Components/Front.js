@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { SearchOutlined, NotificationsOutlined, Add } from '@material-ui/icons';
+import { SearchOutlined, NotificationsOutlined, Add, } from '@material-ui/icons';
 import { Avatar } from '@material-ui/core';
 // import profile from '../img/profile-1.jpg';
 import Minchatavater from './Minchatavater';
 import Chatlist from './Chatlist';
 import db from '../firebase';
 import { useStateValue } from './StateProvider';
+import Dtest from './Dtest';
+
 
 
 const Front = () => {
     const [rooms, setRooms] = useState([]);
+
     // eslint-disable-next-line
     const [{ user }, dispatch] = useStateValue();
 
     const createchat = () => {
-        const roomName = prompt('please enter name fore chat room');
+        const roomName = prompt('please enter name for chat room');
         if (roomName) {
 
             db.collection('rooms').add({
@@ -36,6 +39,11 @@ const Front = () => {
             unsubscribe();
         }
     }, [])
+
+    // const testdelete = () => {
+    //     console.log('lol');
+    //     // console.log(tr);
+    // }
     return (
         <div className='front'>
             <div className="front__topbar ">
@@ -93,9 +101,13 @@ const Front = () => {
 
                 <div className="front__chat-chatlistcon">
                     {rooms.map(room => (
-                        <Chatlist key={room.id} id={room.id}
-                            name={room.data.name}
-                        />
+                        <div className='chatlistcon2'>
+                            <Dtest id={room.id} />
+                            <Chatlist key={room.id} id={room.id}
+                                name={room.data.name}
+                            />
+                        </div>
+
 
                     ))}
 
