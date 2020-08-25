@@ -20,8 +20,14 @@ const Mainchat = () => {
     const { roomId } = useParams();
     const [roomName, setRoomName] = useState('');
     const [messages, setMessages] = useState([]);
+    const [seed, setSeed] = useState('');
+
     // eslint-disable-next-line
     const [{ user }, dispatch] = useStateValue();
+
+    useEffect(() => {
+        setSeed(Math.floor(Math.random() * 5000))
+    }, [])
 
 
     useEffect(() => {
@@ -58,7 +64,7 @@ const Mainchat = () => {
             </Link>
             <div className="mainchat__header">
                 <div className="header">
-                    <Avatar className='header__ava' />
+                    <Avatar className='header__ava' src={`https://avatars.dicebear.com/api/avataaars/:${seed}.svg`} />
                     <div className="header__info">
                         <h3>{roomName} </h3>
                         <p>Hey, I am using chat <span>•</span> online</p>
