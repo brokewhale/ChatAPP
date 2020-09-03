@@ -1,7 +1,6 @@
 🔥🔥🔥🔥Note*** Still on mobile design so dont forget to open mobile emulator in dev tools
 
-demo can be found on: https://chatapp-f7ad0.web.app
-or try:      https://shigchat.netlify.app/
+demo:     https://shigchat.netlify.app/
 
 
 
