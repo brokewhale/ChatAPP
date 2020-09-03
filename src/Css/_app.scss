@@ -1,17 +1,19 @@
 .app {
     // background-color: #1C3FAA;
+    position: relative;
     background-color: #2392c8;
     padding: 20px 12px;
-    min-height: 100vh;
-    max-width: 360px;
+    max-width: 375px;
     margin: 0 auto;
+    height: 100vh;
+    overflow-y: auto;
 
 
     &__content {
         // background-color: #F1F5F8;
         background-color: #E2EEFF;
+        position: relative;
 
-        min-height: 100vh;
         border-radius: 30px;
         padding: 0 16px;
         padding-bottom: 20px;

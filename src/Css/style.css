@@ -12,16 +12,18 @@ a {
 }
 
 .app {
+  position: relative;
   background-color: #2392c8;
   padding: 20px 12px;
-  min-height: 100vh;
-  max-width: 768px;
+  max-width: 375px;
   margin: 0 auto;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .app__content {
   background-color: #E2EEFF;
-  min-height: 100vh;
+  position: relative;
   border-radius: 30px;
   padding: 0 16px;
   padding-bottom: 20px;
@@ -174,6 +176,15 @@ a {
   cursor: pointer;
 }
 
+.front__chat-introcontainer .chatselect button app__videos::-webkit-scrollbar {
+  display: none;
+}
+
+.front__chat-introcontainer .chatselect button .app__videos {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .front__chat-introcontainer .chatselect .active {
   background-color: #2392c8;
   color: white;
@@ -219,6 +230,13 @@ a {
   gap: 20px;
   max-height: 525px;
   overflow: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.front__chat-chatlistcon::-webkit-scrollbar {
+  display: none;
 }
 
 .chatlistcon2 {
@@ -313,6 +331,8 @@ a {
 .mainchat {
   position: relative;
   top: 20px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
   background-color: white;
 }
 
@@ -410,6 +430,8 @@ a {
   border-bottom-right-radius: 6px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  word-wrap: inherit;
+  word-break: break-word;
 }
 
 .mainchat__msg .msgchat .timestamp {
@@ -433,12 +455,14 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 14px;
 }
 
 .mainchat__footer form input {
   border: none;
   padding: 12px 20px;
   overflow-y: auto;
+  overflow-x: hidden;
   resize: none;
   height: 46px;
   color: #a0aec0;
@@ -493,7 +517,6 @@ a {
 .backarrow {
   z-index: 999;
   position: fixed;
-  right: 32px;
   bottom: 194px;
   border-radius: 80px;
   padding: 20px 7px;

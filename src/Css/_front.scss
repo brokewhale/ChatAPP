@@ -110,6 +110,16 @@
                     font-weight: 500;
                     // appearance: none;
                     font-size: 14px;
+
+                    app__videos::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    .app__videos {
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                    }
+
                     line-height: 21px;
                     cursor: pointer;
 
@@ -176,6 +186,18 @@
             gap: 20px;
             max-height: 525px;
             overflow: scroll;
+            overflow-x: hidden;
+
+
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
         }
     }
 }

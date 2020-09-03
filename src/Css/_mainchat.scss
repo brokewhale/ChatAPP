@@ -1,6 +1,8 @@
 .mainchat {
     position: relative;
     top: 20px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 
     // height: 100vh;
 
@@ -105,7 +107,8 @@
             border-bottom-right-radius: 6px;
             border-top-left-radius: 6px;
             border-top-right-radius: 6px;
-
+            word-wrap: inherit;
+            word-break: break-word;
             // line-height: 21px;
 
 
@@ -127,12 +130,14 @@
         form {
             display: flex;
             align-items: center;
+            margin-bottom: 14px;
 
             input {
                 // width: 80%;
                 border: none;
                 padding: 12px 20px;
                 overflow-y: auto;
+                overflow-x: hidden;
                 resize: none;
                 height: 46px;
                 // max-height: 70px;
@@ -188,7 +193,7 @@
 .backarrow {
     z-index: 999;
     position: fixed;
-    right: 32px;
+    // right: 32px;
     bottom: 194px;
     border-radius: 80px;
     padding: 20px 7px;
