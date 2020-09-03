@@ -21,6 +21,10 @@ a {
   overflow-y: auto;
 }
 
+.app::-webkit-scrollbar {
+  display: none;
+}
+
 .app__content {
   background-color: #E2EEFF;
   position: relative;
